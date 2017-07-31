@@ -1,0 +1,44 @@
+<html>
+<body>
+
+
+<h2> New Menu Item </h2>
+
+
+<form action="{{ url_for('newMenuItem', restaurant_id=restaurant_id )}}" method = "POST">
+
+<p>
+	Name:
+	<input type = "text" size="30" name="name">
+</p>
+
+<p>
+	Description:
+	<input type = "text" size="50" description="description">
+</p>
+<p>
+	Price:
+	<input type = "text" size="5" price="price">
+</p>
+<p>
+	Course:
+
+
+	<input list="course_values" course="course">
+    <datalist id="course_values">
+      <option value="Appetizer"> </option>
+      <option value="Entree"> </option>
+      <option value="Dessert"> </option>
+      <option value="Beverage"> </option>
+    </datalist>
+
+</p>
+
+<input type="submit" value="Create">
+
+</form>
+
+<a href = "{{url_for('restaurantMenu', restaurant_id=restaurant_id)}}"> Cancel </a>
+
+</body>
+</html>

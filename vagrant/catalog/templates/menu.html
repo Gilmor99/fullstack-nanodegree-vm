@@ -1,0 +1,66 @@
+<html>
+<head>
+
+</head>
+  <body>
+	<h1>{{restaurant.name}}</h1>
+    <a href = '{{url_for('newMenuItem', restaurant_id = restaurant.id) }}'>Create New Item</a>
+
+	{% if itemsAppetizer.count() > 0 %}
+		<h3>Appetizers</h3>
+
+		{% for i in itemsAppetizer %}
+			<p>{{i.name}}</p>
+	        <p>{{i.description}}</p>
+	        <p>{{i.price}}</p>
+	        <p>
+	        	<a href='{{url_for('editMenuItem',restaurant_id = restaurant.id, item_id=i.id)}}'>Edit</a>
+	        	<a href='{{url_for('deleteMenuItem', restaurant_id = restaurant.id, item_id =i.id)}}'>Delete</a>
+	        </p>
+		{% endfor %}
+	{% endif %}
+
+	{% if itemsEntree.count > 0%}
+		<h3>Entree</h3>
+
+		{% for i in itemsEntree %}
+			<p>{{i.name}}</p>
+        	<p>{{i.description}}</p>
+        	<p>{{i.price}}</p>
+        	<p>
+        		<a href='{{url_for('editMenuItem',restaurant_id = restaurant.id, item_id=i.id)}}'>Edit</a>
+        		<a href='{{url_for('deleteMenuItem', restaurant_id = restaurant.id, item_id =i.id)}}'>Delete</a>
+        	</p>
+		{% endfor %}
+	{% endif %}
+
+	{% if itemsDessert.count() > 0%}
+		<h3>Dessert</h3>
+
+		{% for i in itemsDessert %}
+			<p>{{i.name}}</p>
+			<p>{{i.description}}</p>
+			<p>{{i.price}}</p>
+			<p>
+				<a href='{{url_for('editMenuItem',restaurant_id = restaurant.id, item_id=i.id)}}'>Edit</a>
+				<a href='{{url_for('deleteMenuItem', restaurant_id = restaurant.id, item_id =i.id)}}'>Delete</a>
+			</p>
+		{% endfor %}
+	{% endif%}
+
+	{% if itemsBeverage.count() > 0 %}
+		<h3>Beverage</h3>
+
+		{% for i in itemsBeverage %}
+			<p>{{i.name}}</p>
+        	<p>{{i.description}}</p>
+        	<p>{{i.price}}</p>
+        	<p>
+        		<a href='{{url_for('editMenuItem',restaurant_id = restaurant.id, item_id=i.id)}}'>Edit</a>
+        		<a href='{{url_for('deleteMenuItem', restaurant_id = restaurant.id, item_id =i.id)}}'>Delete</a>
+        	</p>
+		{% endfor %}
+	{% endif %}
+  </body>
+
+</html>
